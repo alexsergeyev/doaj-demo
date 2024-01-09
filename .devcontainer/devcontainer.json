@@ -1,0 +1,22 @@
+{
+  "name": "doaj-search",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+		"GitHub.copilot",
+		"LoranKloeze.ruby-rubocop-revived",
+		"Shopify.ruby-lsp"
+	],
+      "settings": {
+        "files.exclude": {},
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "service": "app",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose"
+}
