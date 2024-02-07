@@ -6,6 +6,7 @@ ENV['TZ'] = 'UTC'
 ENV['RACK_ENV'] ||= 'development'
 require 'oj'
 require 'mongo'
+require 'search'
 
 Oj.mimic_JSON # Overtake JSON.parse and JSON.generate
 MDB = Mongo::Client.new ENV['MONGO_URL']

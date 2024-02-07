@@ -43,3 +43,16 @@ Restore the dataset to your local mongodb instance.
 ```bash
 bin/restore
 ```
+
+Create indexes by running the following command:
+
+```bash
+bin/console
+```
+
+```ruby
+Search::V1.setup
+Search::V2.setup
+```
+
+

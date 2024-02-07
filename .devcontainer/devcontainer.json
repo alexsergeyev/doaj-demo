@@ -6,13 +6,14 @@
   "customizations": {
     "vscode": {
       "extensions": [
-		"GitHub.copilot",
-		"LoranKloeze.ruby-rubocop-revived",
-		"Shopify.ruby-lsp"
-	],
+        "GitHub.copilot",
+        "LoranKloeze.ruby-rubocop-revived",
+        "Shopify.ruby-lsp"
+      ],
       "settings": {
         "files.exclude": {},
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "rubyLsp.rubyVersionManager": "none"
       }
     }
   },

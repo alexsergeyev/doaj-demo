@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - MONGO_URL=mongodb://root:root@mongo:27778/?directConnection=true
+      - MONGO_URL=mongodb://root:root@mongo:27779/doaj?directConnection=true&authSource=admin
     ports:
       - "9000:8080"
     depends_on:
@@ -15,8 +15,8 @@ services:
     image: mongodb/atlas
     privileged: true
     command: |
-      /bin/bash -c "atlas deployments setup --type local --port 27778 --bindIpAll --username root --password root --force && tail -f /dev/null"
+      /bin/bash -c "atlas deployments setup --type local --port 27779 --bindIpAll --username root --password root --force && tail -f /dev/null"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - 27778:27778
+      - 27779:27779

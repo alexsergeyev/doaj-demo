@@ -1,12 +1,22 @@
 require 'smarter_csv'
-require 'rubygems/package'
 require 'zlib'
+
+class DateConverter
+  def self.convert(value)
+    Time.parse(value)
+  end
+end
+
+class LicencesConverter
+  def self.convert(value)
+    value.split(',').map(&:strip)
+  end
+end
 
 module Import
   CONF = {
     journal_title: :name,
     journal_url: :url,
-    'journal_issn_(print_version)': :issn_p,
     'journal_eissn_(online_version)': :issn_e,
     keywords: :keywords,
     publisher: :publisher,
@@ -29,7 +39,13 @@ module Import
   end
 
   def self.chunks(file, &)
-    SmarterCSV.process(file, chunk_size: 1000, key_mapping: CONF, remove_unmapped_keys: true, &)
+    SmarterCSV.process(
+      file,
+      chunk_size: 1000,
+      key_mapping: CONF,
+      remove_unmapped_keys: true,
+      value_converters: { articles_last: DateConverter, licenses: LicencesConverter },
+      &)
   end
 
   def self.download(url)
